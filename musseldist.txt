@@ -1,0 +1,43 @@
+###Function to get final length
+initial data
+_________________________________________________________
+		Up stream triangle
+			#upstream side
+			sideA
+			#downstream side
+			sideB
+			### length E comes from spread sheet and is the distance between posts
+			sideE
+_________________________________________________________
+		Down Stream triangle
+			#upstream side
+			sideC
+			#downstream side
+			sideD
+
+			sideF
+			### length F comes from spread sheet and is the distance between posts
+_________________________________________________________
+		Misc
+			#Length in between the downstream post of the upstream triangle and the upstream post of the downstream triangle
+			#Unfortunatly you have to come up with lengthG by looking at a spreadsheet
+			#Because the lengths aren't uniform
+			lengthG = dist(triangle 1 downstream - triangle 2 upstream)
+_________________________________________________________
+		#Topside triangle
+			a˚ = arcCos((sideE^2 + sideB^2 - sideA^2)/(2*sideE*sideB))
+			180 - a˚ = p˚
+			#Length R is the bottom length of one of the mini triangles
+			lengthR = (lengthG)/2
+			lengthP = sqrt((lengthR)^2 + (sideB)^2 -2*lengthR*sideB*cos(p˚))
+			b˚ = arcCos((lengthR^2 + sideP^2 - sideB^2)/(2*lengthR*lengthP))
+		#Botside triangle
+			d˚ = arcCos((sideF^2 + sideC^2 - sideD^2)/(2*sideF*sideC))
+			180 - d˚ = n˚
+			#Length Y is the bottom length of one of the mini triangles (dwnstrm)
+			lengthY = (lengthG)/2
+			lengthN = sqrt((lengthY)^2 + (sideC)^2 -2*lengthY*sideC*cos(n˚))
+			c˚ = arcCos((lengthY^2 + lengthN^2 - sideC^2)/(2*lengthY*lengthN))
+		#combine
+			x˚ = 180 - c˚ - b˚
+			X = sqrt(((lengthN)^2 + (lengthP)^2) - (2*lengthP*sideN*cos(x˚)))
